@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_003518) do
 
   create_table "bags", force: :cascade do |t|
     t.string "name"
+    t.integer "quantity"
     t.integer "cymbal_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
