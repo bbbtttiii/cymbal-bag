@@ -1,0 +1,2 @@
+class CymbalsController < ApplicationController
+end

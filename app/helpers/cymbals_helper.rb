@@ -1,0 +1,2 @@
+module CymbalsHelper
+end
