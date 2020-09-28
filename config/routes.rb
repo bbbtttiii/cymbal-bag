@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :bags
   resources :cymbals
-  resources :users
+  resources :users, only: [:new, :create, :show]
+
+  # resources :bags do
+  #   resources :cymbals
+  # end
 
   root 'welcome#home'
 
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: 'signup'
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
+  get '/auth/github/callback' => 'sessions#create'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
