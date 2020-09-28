@@ -1,11 +1,11 @@
-<%= form_tag('/session', method: post) do %>
+<%= form_tag signin_path, method: 'post' do %>
 
     <%= label_tag(:name, "Name") %>
-    <%= text_field(:name) %>
+    <%= text_field_tag(:name) %>
 
     <%= label_tag(:password, "Password") %>
     <%= password_field_tag(:password, nil) %>
 
     <%= submit_tag("Sign In") %>
 
-<%= end %>
+<% end %>
