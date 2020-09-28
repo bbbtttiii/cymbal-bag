@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
 
-  get '/signin', to: 'sessions#new', as: 'signin'
+  get '/login', to: 'sessions#new', as: 'login'
+  post '/session', to: 'session#create', as: 'session'
   get '/signup', to: 'users#new', as: 'signup'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 
