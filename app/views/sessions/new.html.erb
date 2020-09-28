@@ -1,0 +1,11 @@
+<%= form_tag('/session', method: post) do %>
+
+    <%= label_tag(:name, "Name") %>
+    <%= text_field(:name) %>
+
+    <%= label_tag(:password, "Password") %>
+    <%= password_field_tag(:password, nil) %>
+
+    <%= submit_tag("Sign In") %>
+
+<%= end %>
