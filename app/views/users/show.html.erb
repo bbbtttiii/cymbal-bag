@@ -1,1 +1,13 @@
 <h1>Your bags:</h1>
+
+<% if @user.bags.empty? %>
+    None. Create one <a href="link to new bag form">here</a>!
+<% else %>
+    <%= @user.bags do |b| %>
+        <h2><%= b.name %></h2>
+        <br>
+        <ul>
+            <li><a href="link to cymbal"><%= b.cymbal.diameter %><%= b.cymbal.brand %><%= b.cymbal.line %><%= b.cymbal.type %></a></li>
+        </ul>
+    <% end %>
+<% end %>

@@ -1,3 +1,9 @@
 <%= form_for @bag do |f| %>
 
+    <%= f.label "Name (ex: 'Vintage', 'Big Kit', 'Jazz', etc):" %>
+    <br>
+    <%= f.text_field :name %>
+    <br><br>
+    <%= f.submit "Create bag & add cymbals ->" %>
+
 <% end %>
