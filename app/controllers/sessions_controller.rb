@@ -6,11 +6,10 @@ class SessionsController < ApplicationController
     end
 
     def create
-        # raise params.inspect
         @user = User.find_by(email: params[:email])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            redirect_to root_path
+            redirect_to user_path(@user)
         else
             render 'new'
         end
@@ -22,12 +21,11 @@ class SessionsController < ApplicationController
     end
 
     def create_with_fb
-        @user = User.find_or_create_by(username: auth["email"]) do |u|
-            u.password = 'password'
-        end
+        # raise params.inspect
+        @user = User.find_or_create_by(u_id: auth['u_id']) {|u| u.password = 'password' }
         @user.save
         session[:user_id] = @user.id
-        redirect_to root_path
+        redirect_to user_path(@user)
     end
 
     private
