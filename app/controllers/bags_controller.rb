@@ -1,7 +1,7 @@
 class BagsController < ApplicationController
 
     def index
-
+        
     end
 
     def show
@@ -16,12 +16,12 @@ class BagsController < ApplicationController
 
     end
 
-    def edit
+    def update
 
     end
 
     def destroy
-        
+
     end
 
 end

@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   resources :bags
-  resources :cymbals
-  resources :users, only: [:new, :create, :show]
 
-  # resources :bags do
-  #   resources :cymbals
-  # end
+  resources :cymbals
+
+  resources :users, only: [:new, :create, :show] do
+    resources :bags, only: [:index, :show]
+  end
 
   root 'welcome#home'
 
@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: 'signup'
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
-  get '/auth/github/callback' => 'sessions#create'
+  get '/auth/facebook/callback' => 'sessions#create_with_fb'
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

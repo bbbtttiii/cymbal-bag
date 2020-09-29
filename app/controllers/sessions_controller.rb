@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     def create
         @user = User.find_by(username: params[:user][:username])
-        if @user && @user.authenticate(params[:user][:username])
+        if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
@@ -21,12 +21,12 @@ class SessionsController < ApplicationController
     end
 
     def create_with_fb
-        user = User.find_or_create_by(username: auth["email"]) do |u|
+        @user = User.find_or_create_by(username: auth["email"]) do |u|
             u.password = 'password'
         end
-        user.save
-        session[:user_id] = user.id
-        redirect_to root_path
+        @user.save
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
     end
 
     def auth
