@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :cymbals
 
-  resources :users, only: [:new, :create, :show] do
+  resources :users, only: [:show, :index] do
     resources :bags, only: [:index, :show]
   end
 

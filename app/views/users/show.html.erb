@@ -1,7 +1,7 @@
 <h1>Your bags:</h1>
 
 <% if @user.bags.empty? %>
-    None. Create one <a href="link to new bag form">here</a>!
+    None. Create one <a href="<%= new_bag_path %>">here</a>!
 <% else %>
     <%= @user.bags do |b| %>
         <h2><%= b.name %></h2>

@@ -4,12 +4,12 @@ class BagsController < ApplicationController
         if params[:user_id]
             @bags = User.find_by(id: params[:user_id]).bags
         else
-            @bags = Bags.all
+            @bags = Bag.all
         end
     end
 
     def show
-
+        @bags = Bag.find_by(params[:id])
     end
 
     def new
@@ -17,7 +17,12 @@ class BagsController < ApplicationController
     end
 
     def create
-        
+        bag = Bag.new(bag_params)
+        if bag.save
+            redirect_to bag
+        else
+            redirect_to bags_path
+        end
     end
 
     def update
@@ -25,13 +30,13 @@ class BagsController < ApplicationController
     end
 
     def destroy
-
+        
     end
 
     private
 
-    def bags_params
-
+    def bag_params
+        params.require(:bag).permit(:name, :user_id)
     end
 
 end
