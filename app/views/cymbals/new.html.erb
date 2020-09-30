@@ -1,1 +1,13 @@
+Add cymbals to: <h2><%= @cymbal.bags.name %></h2>
 <%= render 'form' %>
+<br>
+
+<% if @cymbal.bags.empty? %>
+    Empty
+<% else %>
+    <%= @cymbal.bags do |c| %>
+        <ul>
+        <li><a href=""><%= c.diameter %><%= c.brand %><%= c.model %><%= c.type %></a></li>
+        </ul>
+    <% end %>
+<% end %>

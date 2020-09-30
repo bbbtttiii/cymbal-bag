@@ -7,19 +7,19 @@
     <%= f.text_field :line %>
     <br>
     <%= f.label "Type:" %>
-    <%= f.password_field :type %>
+    <%= f.text_field :type %>
     <br>
     <%= f.label "Diameter (in):" %>
-    <%= f.password_field :diameter %>
+    <%= f.text_field :diameter %>
     <br>
     <%= f.label "Weight (g):" %>
-    <%= f.password_field :weight %>
+    <%= f.text_field :weight %>
     <br>
     <%= f.label "Finish:" %>
-    <%= f.password_field :finish %>
+    <%= f.text_field :finish %>
     <br>
     <br>
-    <%= f.submit "Add another", name: "Add"%>
+    <%= f.submit "Add another", name: "add"%>
     <%= f.submit "Done" %>
 
 <% end %>

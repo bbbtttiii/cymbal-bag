@@ -13,22 +13,15 @@ class BagsController < ApplicationController
     end
 
     def new
-        if params[:cymbal_id]
-            @cymbal = Cymbal.find_by(id: params[:cymbal_id])
-            @bag = @cymbal.bag.build
-        else
-            @bag = Bag.new
-            @bag.build_cymbal
-        end
+        @bag = Bag.new
     end
 
-
     def create
-        bag = Bag.new(bag_params)
-        bag.user = current_user
-        bag.cymbal_id = params[:cymbal_id]
-        bag.save
-        redirect_to bag_path(bag.item)
+        @bag = Bag.new(bag_params)
+        # bag.user = current_user
+        # bag.cymbal_id = params[:cymbal_id]
+        # bag.save
+        redirect_to new_cymbal_path
     end
 
     def update

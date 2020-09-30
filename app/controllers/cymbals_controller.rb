@@ -18,10 +18,14 @@ class CymbalsController < ApplicationController
 
     def create
         @cymbal = Cymbal.create(cymbal_params)
-        if @cymbal.save
-            redirect_to cymbal_path(@cymbal)
+        if params[:add]
+            redirect_to new_cymbal_path
         else
-            render 'new'
+            redirect_to bags_path
+        # if @cymbal.save
+        #     redirect_to cymbal_path(@cymbal)
+        # else
+        #     render 'new'
         end
     end
 
@@ -46,8 +50,8 @@ class CymbalsController < ApplicationController
 
     private
 
-    def cymbals_params
-        # params.require(:cymbal).permit()
+    def cymbal_params
+        params.require(:cymbal).permit(:brand, :model, :type, :diameter, :weight, :finish)
     end
 
 end
