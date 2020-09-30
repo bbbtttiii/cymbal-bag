@@ -14,9 +14,11 @@ class BagsController < ApplicationController
 
     def new
         @bag = Bag.new
+        # @cymbal = @bag.build_cymbal
     end
 
     def create
+        # byebug
         @bag = Bag.new(bag_params)
         @bag.user = current_user
         @bag.save
@@ -35,7 +37,7 @@ class BagsController < ApplicationController
     private
 
     def bag_params
-        params.require(:bag).permit(:bag_ids, :id, :name)
+        params.require(:bag).permit(:name, :bag_id, :user_id, :cymbal_id, :id)
     end
 
 end

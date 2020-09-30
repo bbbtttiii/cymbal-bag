@@ -13,15 +13,14 @@ class CymbalsController < ApplicationController
 
     def new
         @cymbal = Cymbal.new
-        @cymbal.bags.build(user: current_user)
+        # @cymbal.bags.build(user: current_user)
     end
 
     def create
         @cymbal = Cymbal.create(cymbal_params)
-        @cymbal.save
-        if params[:add]
+        if params[:add] #add more button
             render 'cymbals/new'
-        else
+        else #done button
             redirect_to user_path(@current_user)
         end
     end

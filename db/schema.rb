@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_09_30_184534) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "bag_id"
+    t.integer "bag_id"
   end
 
   create_table "cymbals", force: :cascade do |t|
