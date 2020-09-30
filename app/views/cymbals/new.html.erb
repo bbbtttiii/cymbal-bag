@@ -1,11 +1,11 @@
-Add cymbals to: <b><%= @bag.name %></b>
+Adding cymbals to <b><%= @bag.name %></b>
 
 <br><br>
 <%= render 'cymbals/form' %>
 <br>
 
 <% if @cymbal.bags.empty? %>
-    Bag is empty
+    (Bag is empty)
 <% else %>
     <%= @cymbal.bags do |c| %>
         <ul>

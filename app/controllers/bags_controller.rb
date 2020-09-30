@@ -1,7 +1,5 @@
 class BagsController < ApplicationController
 
-
-
     def index
         if params[:user_id]
             @bags = User.find_by(id: params[:user_id]).bags
@@ -24,7 +22,6 @@ class BagsController < ApplicationController
         @bag.save
         @cymbal = Cymbal.new
         render 'cymbals/new'
-        # byebug
     end
 
     def update
@@ -38,7 +35,7 @@ class BagsController < ApplicationController
     private
 
     def bag_params
-        params.require(:bag).permit(:id, :name)
+        params.require(:bag).permit(:bag_ids, :id, :name)
     end
 
 end
