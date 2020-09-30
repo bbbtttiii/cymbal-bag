@@ -1,5 +1,7 @@
 <%= form_for @cymbal do |f|%>
 
+    <% f.hidden_field :bag_id %>
+
     <%= f.label "Brand:" %>
     <%= f.text_field :brand %>
     <br>

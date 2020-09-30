@@ -21,11 +21,7 @@ class CymbalsController < ApplicationController
         if params[:add]
             redirect_to new_cymbal_path
         else
-            redirect_to bags_path
-        # if @cymbal.save
-        #     redirect_to cymbal_path(@cymbal)
-        # else
-        #     render 'new'
+            redirect_to user_path(@current_user)
         end
     end
 

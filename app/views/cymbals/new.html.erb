@@ -1,14 +1,15 @@
-Add cymbals to: <b><%= @cymbal.bags.name %></b>
+Add cymbals to: <b><%= @bag.name %></b>
+
 <br><br>
-<%= render 'form' %>
+<%= render 'cymbals/form' %>
 <br>
 
 <% if @cymbal.bags.empty? %>
-    Empty
+    Bag is empty
 <% else %>
     <%= @cymbal.bags do |c| %>
         <ul>
-        <li><a href=""><%= c.diameter %><%= c.brand %><%= c.model %><%= c.type %></a></li>
+            <li><a href="<%= cymbal_path %>"><%= c.diameter %><%= c.brand %><%= c.line %><%= c.cym_model %><%= c.cym_type %></a></li>
         </ul>
     <% end %>
 <% end %>
