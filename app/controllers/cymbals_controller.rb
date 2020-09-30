@@ -51,7 +51,7 @@ class CymbalsController < ApplicationController
     private
 
     def cymbal_params
-        params.require(:cymbal).permit(:brand, :model, :type, :diameter, :weight, :finish)
+        params.require(:cymbal).permit(:brand, :line, :cym_model, :cym_type, :diameter, :weight, :finish)
     end
 
 end

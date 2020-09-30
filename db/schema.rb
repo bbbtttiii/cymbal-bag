@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_003518) do
+ActiveRecord::Schema.define(version: 2020_09_30_160539) do
 
   create_table "bags", force: :cascade do |t|
     t.string "name"
@@ -24,12 +24,13 @@ ActiveRecord::Schema.define(version: 2020_09_25_003518) do
   create_table "cymbals", force: :cascade do |t|
     t.string "brand"
     t.string "line"
-    t.string "type"
+    t.string "cym_type"
     t.string "finish"
     t.integer "diameter"
     t.float "weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "cym_model"
   end
 
   create_table "users", force: :cascade do |t|
