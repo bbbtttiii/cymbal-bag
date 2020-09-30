@@ -1,5 +1,25 @@
-<%= form_for @cymbal %>
+<%= form_for @cymbal do |f|%>
 
-    
+    <%= f.label "Brand:" %>
+    <%= f.text_field :brand %>
+    <br>
+    <%= f.label "Line:" %>
+    <%= f.text_field :line %>
+    <br>
+    <%= f.label "Type:" %>
+    <%= f.password_field :type %>
+    <br>
+    <%= f.label "Diameter (in):" %>
+    <%= f.password_field :diameter %>
+    <br>
+    <%= f.label "Weight (g):" %>
+    <%= f.password_field :weight %>
+    <br>
+    <%= f.label "Finish:" %>
+    <%= f.password_field :finish %>
+    <br>
+    <br>
+    <%= f.submit "Add another", name: "Add"%>
+    <%= f.submit "Done" %>
 
 <% end %>

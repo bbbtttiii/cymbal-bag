@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :bags
-
+  resources :users
   resources :cymbals
 
-  resources :users, only: [:show, :index] do
+  resources :users, only: [:index, :show] do
     resources :bags, only: [:index, :show]
   end
 
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post '/session', to: 'session#create', as: 'session'
   get '/signup', to: 'users#new', as: 'signup'
   get '/logout', to: 'sessions#destroy', as: 'logout'
-
+  
   get '/auth/facebook/callback' => 'sessions#create_with_fb'
 
 end
