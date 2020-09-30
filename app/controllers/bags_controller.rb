@@ -9,18 +9,22 @@ class BagsController < ApplicationController
     end
 
     def show
-        @bags = Bag.find_by(params[:id])
+        @bag = Bag.find_by(params[:id])
     end
 
     def new
-        @bag = Bag.new
+        if params[:name]
+            #this bag name is taken
+            redirect_to new_bag_path
+        else
+            @bag = Bag.new
+        end
     end
 
     def create
         @bag = Bag.new(bag_params)
-        # bag.user = current_user
-        # bag.cymbal_id = params[:cymbal_id]
-        # bag.save
+        @bag.user = current_user
+        @bag.save
         redirect_to new_cymbal_path
     end
 
