@@ -17,12 +17,17 @@ class BagsController < ApplicationController
     end
 
     def create
+        byebug
         @bag = Bag.new(bag_params)
         @bag.user = @current_user
-        @bag.save
         @cymbal = Cymbal.new
         redirect_to user_bags_path(@bag)
-        # byebug
+        # if @bag.save
+        #     redirect_to user_bags_path(@bag)
+        # else
+        #     render 'new'
+        # end
+
     end
 
     def update

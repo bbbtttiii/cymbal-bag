@@ -1,6 +1,16 @@
+<% if @cymbal.errors.any? %>
+
+    <ul>
+        <% @cymbal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+    
+<%end%>
+
 <%= form_for @cymbal do |f|%>
 
-    <% f.hidden_field :bag_ids %>
+    <% f.hidden_field :user_ids %>
 
     <%= f.label "Brand:" %>
     <%= f.text_field :brand %>
