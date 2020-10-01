@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
     skip_before_action :redirect_if_not_logged_in, except: [:destroy]
 
     def new
-        # @user = User.new
+        @user = User.new
     end
 
     def create

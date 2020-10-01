@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- omniauth -->
     <script type="text/javascript">if (window.location.hash == '#_=_')window.location.hash = '';</script>
   </head>
 
@@ -14,18 +15,23 @@
 
   <!-- navbar -->
   <header>
-    <h3><a href="">Cymbal Bag</a></h3>
+
     <nav>
-      <ul>
         <% if @current_user %>
-          <li><%= link_to "Home", user_path(@current_user) %></li>
-          <li><%= link_to "Cymbals", cymbals_path %></li>
-          <li><%= link_to "Bags", bags_path %></li>
+          <h3><%= link_to "Cymbal Bag", user_path(@current_user) %></h3>
+          <ul>
+          <li><%= link_to "Dashboard", user_path(@current_user) %></li>
+          <li><%= link_to "All Cymbals", cymbals_path %></li>
+          <li><%= link_to "All Bags", bags_path %></li>
           <li><%= link_to "Log Out", logout_path %></li>
+          </ul>
         <% else %>
+          <h3><%= link_to "Cymbal Bag", root_path %></h3>
+          <ul>
           <li><%= link_to "Sign Up", signup_path %></li>
           <li><%= link_to "Log In With Email", login_path %></li>
           <li><%= link_to "Log In With Facebook", '/auth/facebook' %></li>
+          </ul>
         <% end %>
       </ul>
     </nav>
