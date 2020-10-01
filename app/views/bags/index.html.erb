@@ -5,7 +5,7 @@
 <% else %>
 
     <ul>
-    <%= @bags.each do |b| %>
+    <% @bags.each do |b| %>
 
         <li><%= b.name %> - <%= b.user.username %></li>
 

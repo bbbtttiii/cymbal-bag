@@ -5,10 +5,10 @@
     None. Create one <%=link_to "here", new_user_bag_path(@current_user.id) %>!
 <% else %>
     <ul>
-        <%= @current_user.bags.each do |b| %>
+        <% @current_user.bag.cymbals.each do |c| %>
             <h2><%= b.name %></h2>
             <br>
-            <li><a href="link to cymbal"><%= b.cymbal.diameter %><%= b.cymbal.brand %><%= b.cymbal.line %><%= b.cymbal.type %></a></li>
+            <li><a href="link to cymbal"><%= c.cymbal.diameter %><%= c.cymbal.brand %><%= c.cymbal.line %><%= b.cymbal.type %></a></li>
         <% end %>
     </ul>
     Edit bag <%= link_to "here", edit_user_bag_path %>">

@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     resources :bags
   end
 
+  resources :bags do
+    resources :cymbals
+  end
+
   root 'welcome#home'
 
   get '/login', to: 'sessions#new', as: 'login'
