@@ -20,7 +20,6 @@ class BagsController < ApplicationController
         @bag = Bag.new(bag_params)
         @bag.user = @current_user
         @bag.save
-        # byebug
         if @bag.save
             @cymbal = Cymbal.new
             redirect_to new_cymbal_path(@current_user)
@@ -30,7 +29,13 @@ class BagsController < ApplicationController
     end
 
     def update
-
+        @bag = Bag.find_by(id: params[:id])
+        @bag.update(bag_params)
+        if @bag.update(bag_params)
+            redirect_to user_path
+        else
+            render 'edit'
+        end
     end
 
     def destroy

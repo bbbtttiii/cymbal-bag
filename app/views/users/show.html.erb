@@ -9,8 +9,8 @@
     <ul>
         <% @current_user.bags.each do |b| %>
             <h2><%= link_to b.name, bag_path(b) %></h2>
-                <%= link_to "edit", edit_bag_path(b) %> |
-                <%= link_to "delete", bag_path(b), method: :delete %>
+                <%= link_to "edit name", edit_bag_path(b) %> |
+                <%= link_to "delete bag", bag_path(b), method: :delete %>
                 <hr>
         <% end %>
     </ul>

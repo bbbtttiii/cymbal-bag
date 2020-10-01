@@ -33,13 +33,14 @@ class CymbalsController < ApplicationController
     end
 
     def destroy
+        @cymbal = Cymbal.find_by(id: params[:id])
         @cymbal.destroy
         redirect_to cymbals_path
     end
 
-    def set_cymbal
-        @cymbal = Cymbal.find_by(id: params[:id])
-    end
+    # def set_cymbal
+    #     @cymbal = Cymbal.find_by(id: params[:id])
+    # end
 
     private
 
