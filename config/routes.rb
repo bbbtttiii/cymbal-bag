@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resources :cymbals
 
    #users/:id/bags/:bag_id
-  resources :users do
-    resources :bags
-  end
+  # resources :users, only: [:show] do
+  #   resources :bags, only: [:show, :index]
+  # end
 
   resources :bags do
     resources :cymbals

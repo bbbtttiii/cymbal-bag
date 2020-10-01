@@ -17,19 +17,16 @@ class BagsController < ApplicationController
     end
 
     def create
-
         @bag = Bag.new(bag_params)
         @bag.user = @current_user
         @bag.save
         @cymbal = Cymbal.new
         # byebug
-        redirect_to user_bags_path(@current_user)
-        # if @bag.save
-        #     redirect_to user_bags_path(@bag)
-        # else
-        #     render 'new'
-        # end
-
+        if @bag.save
+            redirect_to new_cymbal_path(@current_user)
+        else
+            render 'new'
+        end
     end
 
     def update
@@ -37,8 +34,9 @@ class BagsController < ApplicationController
     end
 
     def destroy
+        @bag.user = @current.user
         @bag.destroy
-        redirect_to user_bags_path
+        redirect_to user_bags_path(@current_user)
     end
 
     private

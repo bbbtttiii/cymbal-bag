@@ -14,7 +14,6 @@ class CymbalsController < ApplicationController
 
     def create
         @cymbal = Cymbal.create(cymbal_params)
-        @cymbal.user = @current.user
         if params[:add] #add more button
             render 'cymbals/new'
         else #done button
