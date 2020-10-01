@@ -1,14 +1,11 @@
 class CymbalsController < ApplicationController
 
     def index
-        if params[:user_id]
-            @cymbals = User.find_by(id: params[:user_id]).items
-        else
-            @cymbals = Cymbal.all
-        end
+        @cymbals = Cymbal.all
     end
 
     def show
+
     end
 
     def new
@@ -47,7 +44,7 @@ class CymbalsController < ApplicationController
     private
 
     def cymbal_params
-        params.require(:cymbal).permit(:id, :brand, :line, :cym_model, :cym_type, :diameter, :weight, :finish)
+        params.permit(:id, :brand, :line, :cym_model, :cym_type, :diameter, :weight, :finish)
     end
 
 end

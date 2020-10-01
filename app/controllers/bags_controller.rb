@@ -1,8 +1,8 @@
 class BagsController < ApplicationController
 
     def index
-        if params[:user_id]
-            @bags = User.find_by(id: params[:user_id]).bags
+        if params[:id]
+            @bags = User.find_by(id: params[:id]).bags
         else
             @bags = Bag.all
         end
@@ -23,7 +23,7 @@ class BagsController < ApplicationController
         @bag.user = current_user
         @bag.save
         @cymbal = Cymbal.new
-        render 'cymbals/new'
+        redirect_to bags_path(@bag)
     end
 
     def update

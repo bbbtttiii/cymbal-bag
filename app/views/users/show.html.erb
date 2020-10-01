@@ -1,15 +1,15 @@
-<h2>Hi, <%= @user.username %>.</h2>
+<span class="greeting"><h2>Hi, <%= @current_user.username %>.</h2></span>
 <h1>Your bags:</h1>
 
-<% if @user.bags.empty? %>
-    None. Create one <a href="<%= new_bag_path %>">here</a>!
+<% if @current_user.bags.empty? %>
+    None. Create one <%=link_to "Here", new_user_bag_path(@current_user.id) %>!
 <% else %>
-    <%= @user.bags do |b| %>
-        <h2><%= b.name %></h2>
-        <br>
-        <ul>
+    <ul>
+        <%= @current_user.bags.each do |b| %>
+            <h2><%= b.name %></h2>
+            <br>
             <li><a href="link to cymbal"><%= b.cymbal.diameter %><%= b.cymbal.brand %><%= b.cymbal.line %><%= b.cymbal.type %></a></li>
-        </ul>
-    <% end %>
-    Edit bag <a href="<%= edit_bag_path %>">here</a>
+        <% end %>
+    </ul>
+    Edit bag <%= link_to "Here", edit_user_bag_path %>">
 <% end %>

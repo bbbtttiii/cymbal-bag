@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :cymbals
 
    #users/:id/bags/:bag_id
-  resources :users, only: [:index, :show] do
-    resources :bags, only: [:index, :show]
+  resources :users do
+    resources :bags
   end
 
   root 'welcome#home'

@@ -1,1 +1,9 @@
 <h1>All Cymbals</h1>
+
+<ul>
+<%= @cymbals.each do |c| %>
+
+    <li><%= c.diameter %>" <%= c.brand %> <%= c.line %> <%= c.cym_model %> <%= c.cym_type %></li>
+
+<% end %>
+</ul>
