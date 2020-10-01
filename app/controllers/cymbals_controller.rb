@@ -5,16 +5,16 @@ class CymbalsController < ApplicationController
     end
 
     def show
-
+        @cymbal = Cymbal.find_by(id: params[:id])
     end
 
     def new
         @cymbal = Cymbal.new
-        # @cymbal.bags.build(user: current_user)
     end
 
     def create
         @cymbal = Cymbal.create(cymbal_params)
+        @cymbal.user = @current.user
         if params[:add] #add more button
             render 'cymbals/new'
         else #done button
@@ -34,7 +34,8 @@ class CymbalsController < ApplicationController
     end
 
     def destroy
-
+        @cymbal.destroy
+        redirect_to cymbals_path
     end
 
     def set_cymbal
@@ -44,7 +45,7 @@ class CymbalsController < ApplicationController
     private
 
     def cymbal_params
-        params.permit(:id, :brand, :line, :cym_model, :cym_type, :diameter, :weight, :finish)
+        params.permit(:brand, :line, :cym_model, :cym_type, :diameter, :weight, :finish)
     end
 
 end

@@ -9,7 +9,7 @@ Adding cymbals to <b><%= @bag.name %></b>
 <% else %>
     <%= @cymbal.bags do |c| %>
         <ul>
-            <li><a href="<%= cymbal_path %>"><%= c.diameter %><%= c.brand %><%= c.line %><%= c.cym_model %><%= c.cym_type %></a></li>
+            <li><%= cymbal_path %><%= c.diameter %><%= c.brand %><%= c.line %><%= c.cym_model %><%= c.cym_type %></li>
         </ul>
     <% end %>
 <% end %>

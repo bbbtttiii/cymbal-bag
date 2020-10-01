@@ -1,9 +1,15 @@
 <h1>All Cymbals</h1>
 
-<ul>
-<%= @cymbals.each do |c| %>
+<% if @cymbals.empty? %>
+    No cymbals created yet!
+<% else %>
 
-    <li><%= c.diameter %>" <%= c.brand %> <%= c.line %> <%= c.cym_model %> <%= c.cym_type %></li>
+    <ul>
+    <%= @cymbals.each do |c| %>
+
+        <li><%= c.diameter %> <%= c.brand %> <%= c.line %> <%= c.cym_model %> <%= c.cym_type %></li>
+
+    <% end %>
+    </ul>
 
 <% end %>
-</ul>
