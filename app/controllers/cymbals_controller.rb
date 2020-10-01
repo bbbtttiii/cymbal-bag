@@ -13,7 +13,8 @@ class CymbalsController < ApplicationController
     end
 
     def create
-        @cymbal = Cymbal.create(cymbal_params)
+        @cymbal = Cymbal.new(cymbal_params)
+        @cymbal.save
         if params[:add] #add more button
             render 'cymbals/new'
         else #done button
@@ -22,9 +23,12 @@ class CymbalsController < ApplicationController
     end
 
     def edit
+        @cymbal = Cymbal.find_by(id: params[:id])
     end
 
     def update
+        @cymbal = Cymbal.find_by(id: params[:id])
+        @cymbal.update(cymbal_params)
         if @cymbal.update(cymbal_params)
             redirect_to cymbal_path(@cymbal)
         else

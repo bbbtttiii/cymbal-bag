@@ -1,0 +1,11 @@
+Editing cymbal in <b><%= @cymbal.bags.name %></b>
+
+<br><br>
+<%= render 'cymbals/form' %>
+<br>
+
+<%= @cymbal.bags do |c| %>
+    <ul>
+        <li><%= cymbal_path %><%= c.diameter %><%= c.brand %><%= c.line %><%= c.cym_model %><%= c.cym_type %></li>
+    </ul>
+<% end %>
