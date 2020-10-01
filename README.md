@@ -1,24 +1,29 @@
-# README
+# Cymbal-Bag
+An app for drummers to share their cymbal collections.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
 
-Things you may want to cover:
+- Clone
+- Run `bundle install`
+- Run `rails db:migrate`
+- Run `rails` and head to http://localhost:3000
 
-* Ruby version
+## Features
 
-* System dependencies
+After creating an account, you can create new observations, edit or delete your entries, and view reports from all users.
 
-* Configuration
+## Built With
 
-* Database creation
+- [Ruby on Rails](http://sinatrarb.com)
 
-* Database initialization
+## Contributing
 
-* How to run the test suite
+Feel free to create a pull request if you have any ideas for expansion or improvement!
 
-* Services (job queues, cache servers, search engines, etc.)
+## Authors
 
-* Deployment instructions
+- Ben Iburg (https://github.com/bbbtttiii)
 
-* ...
+## License
+
+MIT Open Source (https://opensource.org/licenses/MIT)
