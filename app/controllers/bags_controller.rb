@@ -20,9 +20,9 @@ class BagsController < ApplicationController
         @bag = Bag.new(bag_params)
         @bag.user = @current_user
         @bag.save
-        @cymbal = Cymbal.new
         # byebug
         if @bag.save
+            @cymbal = Cymbal.new
             redirect_to new_cymbal_path(@current_user)
         else
             render 'new'

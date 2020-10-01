@@ -1,8 +1,8 @@
 <span class="greeting"><h2>Hi, <%= @current_user.username %>.</h2></span>
 <h1>Your bags:</h1>
 
-<% if @current_user.bags.empty? && @current_user.bags.cymbals.empty? %>
-    None. Create one <%=link_to "here", new_bag_path(@current_user.id) %>!
+<% if @current_user.bags.empty?  %>
+    None. Create one <%=link_to "here", new_bag_path %>!
 
 <% else %>
 
