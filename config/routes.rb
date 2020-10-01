@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   resources :cymbals
 
    #users/:id/bags/:bag_id
-  # resources :users, only: [:show] do
-  #   resources :bags, only: [:show, :index]
-  # end
+  resources :users, only: [:show] do
+    resources :bags, only: [:show, :index]
+  end
+
+#need nested show/index
 
   resources :bags do
     resources :cymbals
@@ -22,6 +24,8 @@ Rails.application.routes.draw do
 
   get '/cymbals/new', to: 'cymbals#new'
   post '/cymbals/new', to: 'cymbals#create'
+
+  # get '/bags/:id', to: 'bags#show'
   # post '/bags/new', to: 'bags#create'
 
   get '/auth/facebook/callback' => 'sessions#create_with_fb'

@@ -1,5 +1,5 @@
 <span class="greeting"><h2>Hi, <%= @current_user.username %>.</h2></span>
-<h1>Your bags:</h1>
+<h1>You have <%= @current_user.bags.count %> bags:</h1>
 
 <% if @current_user.bags.empty?  %>
     None. Create one <%=link_to "here", new_bag_path %>!
@@ -8,9 +8,9 @@
 
     <ul>
         <% @current_user.bags.each do |b| %>
-            <h2><%= link_to @current_user.bags.name, bag_path(@current_user) %></h2>
-                <%= link_to "edit", edit_bag_path(@current_user) %> |
-                delete
+            <h2><%= link_to b.name, bag_path(b) %></h2>
+                <%= link_to "edit", edit_bag_path(b) %> |
+                <%= link_to "delete", bag_path(b), method: :delete %>
                 <hr>
         <% end %>
     </ul>

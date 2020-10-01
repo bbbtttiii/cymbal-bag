@@ -1,3 +1,11 @@
 <h2><%= @bag.name %></h2>
 
+<% if @bag.empty? %>
+
+    No cymbals yet. Add some >here<.
+
+    <% else %>
+
 <%= @bag.cymbal.diameter %> <%= @bag.cymbal.brand %> <%= @bag.cymbal.line %> <%= @bag.cymbal.cym_model %>
+
+<% end %>

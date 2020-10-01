@@ -1,19 +1,19 @@
 class BagsController < ApplicationController
 
     def index
-        if params[:id]
-            @bags = User.find_by(id: params[:id]).bags
-        else
-            @bags = Bag.all
-        end
+        @bags = Bag.all
     end
 
     def show
-        @bag = Bag.find_by(params[:id])
+        @bag = Bag.find_by(id: params[:id])
     end
 
     def new
         @bag = Bag.new
+    end
+
+    def edit
+        @bag = Bag.find_by(id: params[:id])
     end
 
     def create
@@ -34,9 +34,10 @@ class BagsController < ApplicationController
     end
 
     def destroy
-        @bag.user = @current.user
+        #make sure belongs to user
+        @bag = Bag.find_by(id: params[:id])
         @bag.destroy
-        redirect_to user_bags_path(@current_user)
+        redirect_to user_path
     end
 
     private
