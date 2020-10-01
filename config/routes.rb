@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   # get '/bags/:id', to: 'bags#show'
   # post '/bags/new', to: 'bags#create'
 
-  get '/auth/facebook/callback' => 'sessions#create_with_fb'
-
+  # Routes for Google authentication
+  # get "/auth/google_oauth2/callback", to: "sessions#google_login"
+  # get 'auth/failure', to: redirect('/')
 end

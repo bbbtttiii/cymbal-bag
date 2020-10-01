@@ -3,18 +3,19 @@ An app for drummers to share their cymbal collections.
 
 ## Getting Started
 
-- Clone
+- Clone this repository
 - Run `bundle install`
 - Run `rails db:migrate`
-- Run `rails` and head to http://localhost:3000
+- Run `rails s` and head to http://localhost:3000
 
 ## Features
 
-After creating an account, you can create new observations, edit or delete your entries, and view reports from all users.
+Users can create bags with various cymbal sets.
 
 ## Built With
 
 - [Ruby on Rails](http://rubyonrails.org)
+- [OmniAuth]
 
 ## Contributing
 
