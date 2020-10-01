@@ -1,4 +1,4 @@
-# Cymbal-Bag
+# Cymbal Bag
 An app for drummers to share their cymbal collections.
 
 ## Getting Started
@@ -14,7 +14,7 @@ After creating an account, you can create new observations, edit or delete your 
 
 ## Built With
 
-- [Ruby on Rails](http://sinatrarb.com)
+- [Ruby on Rails](http://rubyonrails.org)
 
 ## Contributing
 
