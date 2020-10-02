@@ -5,18 +5,21 @@ class CymbalsController < ApplicationController
     end
 
     def show
-        @cymbal = Cymbal.find_by(id: params[:bag_id])
+        @cymbal = Cymbal.find_by(id: params[:fav_id])
     end
 
     def new
         @cymbal = Cymbal.new
-        @bag = Bag.find_by(id: params[:bag_id])
+        @favorite = Bag.find_by(id: params[:fav_id])
     end
 
     def create
         @cymbal = Cymbal.new(cymbal_params)
         @cymbal.save
-        redirect_to bag_path(@current_user)
+        @favorite = Bag.find_by(id: params[:fav_id])
+        @favorite.cymbal_id = @cymbal.id
+        @favorite.save
+        redirect_to favorite_path(@favorite)
     end
 
     def edit
@@ -46,7 +49,7 @@ class CymbalsController < ApplicationController
     private
 
     def cymbal_params
-        params.require(:cymbal).permit(:brand, :line, :cym_model, :cym_type, :diameter, :weight, :finish, :bag_id)
+        params.require(:cymbal).permit(:brand, :line, :cym_model, :cym_type, :diameter, :weight, :finish, :favorite_id)
     end
 
 end

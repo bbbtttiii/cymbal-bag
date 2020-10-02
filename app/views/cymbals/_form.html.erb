@@ -8,9 +8,9 @@
 
 <%end%>
 
-<%= form_for @cymbal do |f|%>
+<%= form_for @cymbal, url: favorite_cymbals_path(@favorite) do |f|%>
 
-    <%= f.hidden_field :bag_ids, value: @bag.id %>
+    <%= f.hidden_field :fav_ids, value: @favorite.id %>
 
     <%= f.label "Brand:" %>
     <%= f.text_field :brand %>

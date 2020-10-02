@@ -1,0 +1,19 @@
+<h2><%= @favorite.name %></h2>
+
+<% if !@favorite.cymbal %>
+
+    No cymbals in this favorite yet. Add some <%= link_to "here", new_favorite_cymbal_path(@favorite) %>!
+
+<% else %>
+
+    #show single cymbal or redirect to show page
+
+        <%= @favorite.cymbal.diameter %> <%= @favorite.cymbal.brand %> <%= @favorite.cymbal.line %> <%= @favorite.cymbal.cym_model %>
+        <br>
+        <%= @favorite.cymbal.finish %> Finish
+        <br>
+        <%= @favorite.cymbal.weight %> grams
+        <br><br>
+        <hr>
+
+<% end %>

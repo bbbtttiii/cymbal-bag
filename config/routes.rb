@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  resources :bags
+  resources :favorites
   resources :users
   resources :cymbals
 
   resources :users, only: [:show] do
-    resources :bags, only: [:show, :index]
+    resources :favorites, only: [:show, :index]
   end
 
-  resources :bags do
+  resources :favorites do
     resources :cymbals, only: [:new, :create, :edit, :update]
   end
 
@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   get '/cymbals/new', to: 'cymbals#new'
   post '/cymbals/new', to: 'cymbals#create'
 
-  get '/bags/:id', to: 'bags#show'
-  post '/bags/new', to: 'bags#create'
+  get '/favorites/:id', to: 'favorites#show'
+  post '/favorites/new', to: 'favorites#create'
 
   # Routes for Google authentication
   get '/auth/google_oauth2/callback', to: 'sessions#google_login'

@@ -1,6 +1,6 @@
 class Cymbal < ApplicationRecord
-    has_many :bags
-    has_many :users, through: :bags
+    has_many :favorites
+    has_many :users, through: :favorites
     
     validates :brand, presence: true
     validates :line, presence: true

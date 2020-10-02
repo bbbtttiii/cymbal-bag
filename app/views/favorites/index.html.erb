@@ -1,0 +1,15 @@
+<h1>All Bags</h1>
+
+<% if @favorites.empty? %>
+    No favorites created yet!
+<% else %>
+
+    <ul>
+    <% @favorites.each do |b| %>
+
+        <li><%= link_to b.name, favorite_path(b) %>  (<%= b.user.username %>)</li>
+
+    <% end %>
+    </ul>
+
+<% end %>

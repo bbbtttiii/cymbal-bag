@@ -1,16 +1,16 @@
 <span class="greeting"><h2>Hi, <%= @current_user.username %>.</h2></span>
-<h1>You have <%= @current_user.bags.count %> bag(s):</h1>
+<h1>You have <%= @current_user.favorites.count %> favorite(s):</h1>
 
-<% if @current_user.bags.empty?  %>
-    None. Create one <%=link_to "here", new_bag_path %>!
+<% if @current_user.favorites.empty?  %>
+    None. Create one <%=link_to "here", new_favorite_path %>!
 
 <% else %>
 
     <ul>
-        <% @current_user.bags.each do |b| %>
-            <h2><%= link_to b.name, bag_path(b) %></h2>
-                <%= link_to "edit name", edit_bag_path(b) %> |
-                <%= link_to "delete bag", bag_path(b), method: :delete %>
+        <% @current_user.favorites.each do |b| %>
+            <h2><%= link_to b.name, favorite_path(b) %></h2>
+                <%= link_to "edit name", edit_favorite_path(b) %> |
+                <%= link_to "delete favorite", favorite_path(b), method: :delete %>
                 <hr>
         <% end %>
     </ul>
