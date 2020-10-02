@@ -1,6 +1,7 @@
-class Cymbal < ApplicationRecord
-    has_many :bags
-    has_many :users, through: :bags
+class Client < ApplicationRecord
+    has_many :workouts
+    has_many :users, through: :workouts
+
     validates :brand, presence: true
     validates :line, presence: true
     validates :cym_model, presence: true
