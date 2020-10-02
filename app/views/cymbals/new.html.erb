@@ -1,4 +1,14 @@
-Adding to <b><%= @favorite.name %></b>
+<% if @cymbal.errors.any? %>
+
+    <ul>
+        <% @cymbal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+
+<%end%>
+
+Adding specs to <b><%= @favorite.name %></b>
 
 <br><br>
 <%= render 'cymbals/form' %>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :cymbals
 
-  resources :users, only: [:show] do
+  resources :users, only: [:show, :index] do
     resources :favorites, only: [:show, :index]
   end
 

@@ -1,11 +1,4 @@
-Editing cymbal in <b><%= @cymbal.favorites.name %></b>
+Editing cymbal specs
 
 <br><br>
 <%= render 'cymbals/form' %>
-<br>
-
-<%= @cymbal.favorites do |c| %>
-    <ul>
-        <li><%= cymbal_path %><%= c.diameter %><%= c.brand %><%= c.line %><%= c.cym_model %><%= c.cym_type %></li>
-    </ul>
-<% end %>

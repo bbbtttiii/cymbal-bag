@@ -2,13 +2,13 @@
 
 <% if !@favorite.cymbal %>
 
-    No cymbals in this favorite yet. Add some <%= link_to "here", new_favorite_cymbal_path(@favorite) %>!
+    No specs yet. Add them <%= link_to "here", new_favorite_cymbal_path(@favorite) %>!
 
 <% else %>
 
-    #show single cymbal or redirect to show page
-
-        <%= @favorite.cymbal.diameter %> <%= @favorite.cymbal.brand %> <%= @favorite.cymbal.line %> <%= @favorite.cymbal.cym_model %>
+        <%= @favorite.cymbal.brand %> <%= @favorite.cymbal.line %> <%= @favorite.cymbal.cym_model %> <%= @favorite.cymbal.cym_type %> 
+        <br>
+        <%= @favorite.cymbal.diameter %>"
         <br>
         <%= @favorite.cymbal.finish %> Finish
         <br>

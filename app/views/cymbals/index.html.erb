@@ -1,4 +1,4 @@
-<h1>All Cymbals</h1>
+<h1>All Users' Cymbals</h1>
 
 <% if @cymbals.empty? %>
     No cymbals created yet!
@@ -7,7 +7,7 @@
     <ul>
     <% @cymbals.each do |c| %>
 
-        <li><%= c.diameter %> <%= c.brand %> <%= c.line %> <%= c.cym_model %> <%= c.cym_type %></li>
+        <li><%= c.diameter %>" <%= c.brand %> <%= c.line %> <%= c.cym_model %> <%= c.cym_type %></li>
 
     <% end %>
     </ul>

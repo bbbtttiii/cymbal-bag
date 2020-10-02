@@ -1,16 +1,6 @@
-<% if @cymbal.errors.any? %>
-
-    <ul>
-        <% @cymbal.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-    </ul>
-
-<%end%>
-
 <%= form_for @cymbal, url: favorite_cymbals_path(@favorite) do |f|%>
 
-    <%= f.hidden_field :fav_ids, value: @favorite.id %>
+    <%= f.hidden_field :favorite_ids, value: @favorite.id %>
 
     <%= f.label "Brand:" %>
     <%= f.text_field :brand %>
