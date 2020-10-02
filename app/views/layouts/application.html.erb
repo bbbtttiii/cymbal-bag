@@ -18,16 +18,16 @@
 
     <nav>
         <% if @current_user %>
-          <h3><%= link_to "Cymbal Bag", user_path(@current_user) %></h3>
+          <h3><%= link_to "wrkt", user_path(@current_user) %></h3>
           <ul>
           <li><%= link_to "Dashboard", user_path(@current_user) %></li>
-          <li><%= link_to "Create A Bag", new_bag_path %></li>
-          <li><%= link_to "All Cymbals", cymbals_path %></li>
-          <li><%= link_to "All Bags", bags_path %></li>
+          <li><%= link_to "New Workout", new_workout_path %></li>
+          <li><%= link_to "All Clients", clients_path %></li>
+          <li><%= link_to "All Workouts", workout_path %></li>
           <li><%= link_to "Log Out", logout_path %></li>
           </ul>
         <% else %>
-          <h3><%= link_to "Cymbal Bag", root_path %></h3>
+          <h3><%= link_to "wrkt", root_path %></h3>
           <ul>
           <li><%= link_to "Sign Up", signup_path %></li>
           <li><%= link_to "Log In With Email", login_path %></li>
