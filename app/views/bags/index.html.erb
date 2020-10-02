@@ -7,7 +7,7 @@
     <ul>
     <% @bags.each do |b| %>
 
-        <li><%= link_to b.name %>  (<%= b.user.username %>)</li>
+        <li><%= link_to b.name, bag_path(b) %>  (<%= b.user.username %>)</li>
 
     <% end %>
     </ul>

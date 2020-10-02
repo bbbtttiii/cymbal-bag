@@ -11,19 +11,12 @@ class CymbalsController < ApplicationController
     def new
         @cymbal = Cymbal.new
         @bag = Bag.find_by(id: params[:bag_id])
-        # raise params.inspect
     end
 
     def create
-        # raise params.inspect
         @cymbal = Cymbal.new(cymbal_params)
         @cymbal.save
-        # if params[:add] #add more button
-        #     @bag = Bag.find_by(id: params[:cymbal][:bag_ids])
-            # redirect_to new_bag_cymbal_path(@bag)
-        # else #done button
-            redirect_to user_path(@current_user)
-        # end
+        redirect_to bag_path(@current_user)
     end
 
     def edit

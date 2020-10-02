@@ -42,7 +42,7 @@ class BagsController < ApplicationController
         #make sure belongs to user
         @bag = Bag.find_by(id: params[:id])
         @bag.destroy
-        redirect_to user_path
+        redirect_to user_path(@current_user)
     end
 
     private

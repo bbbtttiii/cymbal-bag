@@ -3,12 +3,9 @@ Rails.application.routes.draw do
   resources :users
   resources :cymbals
 
-   #users/:id/bags/:bag_id
   resources :users, only: [:show] do
     resources :bags, only: [:show, :index]
   end
-
-#need nested show/index
 
   resources :bags do
     resources :cymbals, only: [:new, :create, :edit, :update]
