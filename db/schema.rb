@@ -12,24 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_10_02_131107) do
 
-  create_table "bags", force: :cascade do |t|
-    t.string "name"
-    t.integer "quantity"
-    t.integer "cymbal_id"
-    t.integer "user_id"
-    t.integer "bag_id"
-  end
-
-  create_table "cymbals", force: :cascade do |t|
-    t.string "brand"
-    t.string "line"
-    t.string "cym_type"
-    t.string "finish"
-    t.integer "diameter"
-    t.float "weight"
-    t.string "cym_model"
-  end
-
   create_table "drums", force: :cascade do |t|
     t.string "brand"
     t.string "drum_model"

@@ -53,7 +53,7 @@ class DrumsController < ApplicationController
     private
 
     def drum_params
-        params.require(:drum).permit(:brand, :line, :cym_model, :cym_type, :diameter, :weight, :finish, :bag_id)
+        params.require(:drum).permit(:brand, :drum_model, :diameter, :depth, :material, :hoops, :heads, :wires)
     end
 
 end
