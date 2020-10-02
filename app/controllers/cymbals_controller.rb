@@ -47,6 +47,10 @@ class CymbalsController < ApplicationController
         redirect_to cymbals_path
     end
 
+    def sort_by_size
+        @sorted = Cymbal.sorted
+    end
+
     private
 
     def cymbal_params

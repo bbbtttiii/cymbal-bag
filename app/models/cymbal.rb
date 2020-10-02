@@ -7,4 +7,7 @@ class Cymbal < ApplicationRecord
     validates :cym_model, presence: true
     validates :cym_type, presence: true
     validates :diameter, presence: true
+
+    scope :sorted, -> { order(diameter: :asc) }
+
 end
