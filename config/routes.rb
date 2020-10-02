@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
-  resources :bags
+  resources :reviews
   resources :users
-  resources :cymbals
+  resources :drums
 
-   #users/:id/bags/:bag_id
+   #users/:id/reviews/:review_id
   resources :users, only: [:show] do
-    resources :bags, only: [:show, :index]
+    resources :reviews, only: [:show, :index]
   end
 
 #need nested show/index
 
-  resources :bags do
-    resources :cymbals
+  resources :reviews do
+    resources :drums
   end
 
   root 'welcome#home'
@@ -22,11 +22,11 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: 'signup'
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
-  get '/cymbals/new', to: 'cymbals#new'
-  post '/cymbals/new', to: 'cymbals#create'
+  get '/drums/new', to: 'drums#new'
+  post '/drums/new', to: 'drums#create'
 
-  get '/bags/:id', to: 'bags#show'
-  post '/bags/new', to: 'bags#create'
+  get '/reviews/:id', to: 'reviews#show'
+  post '/reviews/new', to: 'reviews#create'
 
   # Routes for Google authentication
   get '/auth/google_oauth2/callback', to: 'sessions#google_login'

@@ -1,12 +1,12 @@
-<h2><%= @bag.name %></h2>
+<h2><%= @review.name %></h2>
 
-<% if !@bag.cymbal %>
+<% if !@review.cymbal %>
 
-    No cymbals in this bag yet. Add some <%= link_to "here", new_bag_cymbal_path(@bag) %>!
+    No cymbals in this review yet. Add some <%= link_to "here", new_review_cymbal_path(@review) %>!
 
 <% else %>
 
-    <% @bag.cymbals.each do |c| %>
+    <% @review.cymbals.each do |c| %>
 
         <%= c.diameter %> <%= c.brand %> <%= c.line %> <%= c.cym_model %>
         <br>

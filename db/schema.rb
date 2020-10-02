@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_02_130305) do
+ActiveRecord::Schema.define(version: 2020_10_02_131107) do
 
   create_table "bags", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,25 @@ ActiveRecord::Schema.define(version: 2020_10_02_130305) do
     t.integer "diameter"
     t.float "weight"
     t.string "cym_model"
+  end
+
+  create_table "drums", force: :cascade do |t|
+    t.string "brand"
+    t.string "drum_model"
+    t.integer "diameter"
+    t.integer "depth"
+    t.string "material"
+    t.string "heads"
+    t.string "hoops"
+    t.string "wires"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "drum_id"
+    t.integer "user_id"
+    t.integer "brightness"
+    t.integer "resonance"
+    t.text "notes"
   end
 
   create_table "users", force: :cascade do |t|

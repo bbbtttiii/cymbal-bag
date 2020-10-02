@@ -1,0 +1,21 @@
+<% if @review.errors.any? %>
+
+    <ul>
+        <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+
+<% end %>
+
+<%= form_for @review do |f| %>
+
+    <%= f.hidden_field :user_id %>
+
+    <%= f.label "Name (ex: 'Main Kit', 'Jazz', etc):" %>
+    <br>
+    <%= f.text_field :name %>
+    <br><br>
+    <%= f.submit "Submit" %>
+
+<% end %>

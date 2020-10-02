@@ -1,16 +1,16 @@
 <span class="greeting"><h2>Hi, <%= @current_user.username %>.</h2></span>
-<h1>You have <%= @current_user.workouts.count %> workout(s):</h1>
+<h1>You have <%= @current_user.reviews.count %> review(s):</h1>
 
-<% if @current_user.workouts.empty?  %>
-    Create one <%=link_to "here", new_workout_path %>!
+<% if @current_user.reviews.empty?  %>
+    None. Create one <%=link_to "here", new_review_path %>!
 
 <% else %>
 
     <ul>
-        <% @current_user.workouts.each do |b| %>
-            <h2><%= link_to b.name, workout_path(b) %></h2>
-                <%= link_to "edit workout", edit_workout_path(b) %> |
-                <%= link_to "delete workout", workout_path(b), method: :delete %>
+        <% @current_user.reviews.each do |b| %>
+            <h2><%= link_to b.name, review_path(b) %></h2>
+                <%= link_to "edit name", edit_review_path(b) %> |
+                <%= link_to "delete review", review_path(b), method: :delete %>
                 <hr>
         <% end %>
     </ul>

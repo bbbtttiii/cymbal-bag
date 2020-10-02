@@ -1,11 +1,11 @@
 <h1>All Bags</h1>
 
-<% if @bags.empty? %>
-    No bags created yet!
+<% if @reviews.empty? %>
+    No reviews created yet!
 <% else %>
 
     <ul>
-    <% @bags.each do |b| %>
+    <% @reviews.each do |b| %>
 
         <li><%= link_to b.name %>  (<%= b.user.username %>)</li>
 

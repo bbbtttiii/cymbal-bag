@@ -1,6 +1,6 @@
-class Cymbal < ApplicationRecord
-    has_many :bags
-    has_many :users, through: :bags
+class Drum < ApplicationRecord
+    has_many :reviews
+    has_many :users, through: :reviews
 
     # validates :brand, presence: true
     # validates :line, presence: true
