@@ -1,0 +1,34 @@
+<% if @workout.errors.any? %>
+
+    <ul>
+        <% @workout.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+
+<% end %>
+
+<%= form_for @workout do |f| %>
+
+    <%= f.hidden_field :user_id %>
+
+    <%= f.label "Date" %>
+    <br>
+    <%= f.text_field :date %>
+    <br>
+    <%= f.label "Exercise" %>
+    <br>
+    <%= f.text_field :exercise %>
+    <br>
+    <%= f.label "Weight" %>
+    <br>
+    <%= f.text_field :weight %>
+    <br>
+    <%= f.label "Reps" %>
+    <br>
+    <%= f.text_field :reps %>
+    <br>
+    <br><br>
+    <%= f.submit "Submit" %>
+
+<% end %>

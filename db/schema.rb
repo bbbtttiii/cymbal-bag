@@ -10,33 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_02_023324) do
+ActiveRecord::Schema.define(version: 2020_10_02_130305) do
 
-  create_table "clients", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "height"
-    t.decimal "weight"
-    t.decimal "bodyfat"
-    t.text "goals"
+  create_table "bags", force: :cascade do |t|
+    t.string "name"
+    t.integer "quantity"
+    t.integer "cymbal_id"
+    t.integer "user_id"
+    t.integer "bag_id"
+  end
+
+  create_table "cymbals", force: :cascade do |t|
+    t.string "brand"
+    t.string "line"
+    t.string "cym_type"
+    t.string "finish"
+    t.integer "diameter"
+    t.float "weight"
+    t.string "cym_model"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
     t.string "username"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "workouts", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "client_id"
-    t.date "date"
-    t.string "exercise"
-    t.integer "weight"
-    t.integer "reps"
-    t.integer "sets"
+    t.integer "u_id"
+    t.string "google_token"
+    t.string "google_refresh_token"
   end
 
 end

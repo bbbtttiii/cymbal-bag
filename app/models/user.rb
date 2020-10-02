@@ -4,8 +4,8 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
     validates :password, presence: true, length: { minimum: 6 }
 
-    has_many :workouts
-    has_many :clients, through: :workouts
+    has_many :bags
+    has_many :cymbals, through: :bags
 
     # def self.from_omniauth(auth)
     #     # Creates a new user only if it doesn't exist
