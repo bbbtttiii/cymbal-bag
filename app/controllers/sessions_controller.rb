@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            #error message
             render 'new'
         end
     end
@@ -26,7 +25,6 @@ class SessionsController < ApplicationController
             u.password = SecureRandom.hex
             u.username = auth_hash[:info][:name]
         end
-        # byebug
         session[:user_id] = @user.id
         redirect_to user_path(@user)
     end
@@ -36,7 +34,5 @@ class SessionsController < ApplicationController
     def auth_hash
         request.env['omniauth.auth']
     end
-
-
 
 end

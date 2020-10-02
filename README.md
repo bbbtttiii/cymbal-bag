@@ -10,7 +10,7 @@ An app for drummers to share their cymbal collections.
 
 ## Features
 
-Users can create bags with various cymbal sets.
+Users can create their cymbal collections and add cymbal specs.
 
 ## Built With
 

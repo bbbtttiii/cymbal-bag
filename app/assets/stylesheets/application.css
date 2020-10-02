@@ -48,6 +48,10 @@
      text-decoration: underline;
  }
 
+ .error-explanation {
+     color: red;
+ }
+
 main {
     background-color: #ddd;
     padding: 0px 25px 50px 25px;

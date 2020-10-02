@@ -1,12 +1,13 @@
 <% if @cymbal.errors.any? %>
-
+  <div id="error_explanation">
+    <h3><%= pluralize(@cymbal.errors.count, "error") %>:</h3>
     <ul>
-        <% @cymbal.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
+    <% @cymbal.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
     </ul>
-
-<%end%>
+  </div>
+<% end %>
 
 Adding specs to <b><%= @favorite.name %></b>
 

@@ -19,7 +19,11 @@ class CymbalsController < ApplicationController
         @favorite = Favorite.find_by(id: params[:favorite_id])
         @favorite.cymbal_id = @cymbal.id
         @favorite.save
-        redirect_to favorite_path(@favorite)
+        if !@cymbal.save
+            render 'new'
+        else
+            redirect_to favorite_path(@favorite)
+        end
     end
 
     def edit

@@ -1,13 +1,3 @@
-<% if @favorite.errors.any? %>
-
-    <ul>
-        <% @favorite.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-    </ul>
-
-<% end %>
-
 <%= form_for @favorite do |f| %>
 
     <%= f.hidden_field :user_id %>
