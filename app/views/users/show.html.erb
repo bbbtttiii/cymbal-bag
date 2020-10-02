@@ -1,5 +1,6 @@
 <span class="greeting"><h2>Hi, <%= @current_user.username %>.</h2></span>
-<h1>You have <%= @current_user.favorites.count %> cymbal(s):</h1>
+
+<h1>You have <%= @current_user.favorites.count %> <%if @current_user.favorites.count != 1 %>cymbals:<%else%>cymbal:<%end%></h1>
 
 <% if @current_user.favorites.empty?  %>
     None. Create one <%=link_to "here", new_favorite_path %>!
@@ -7,11 +8,11 @@
 <% else %>
 
     <ul>
-        <% @current_user.favorites.each do |b| %>
-            <h2><%= link_to b.name, cymbal_path(b) %></h2>
-                <%= link_to "edit name", edit_favorite_path(b) %> |
-                <%= link_to "edit cymbal", edit_favorite_cymbal_path(b) %> |                
-                <%= link_to "delete", favorite_path(b), method: :delete %>
+        <% @current_user.favorites.each do |f| %>
+            <h2><%= link_to f.name, favorite_path(f) %></h2>
+                <%= link_to "edit name", edit_favorite_path(f) %> |
+                <%= link_to "edit cymbal", edit_favorite_cymbal_path(f) %> |                
+                <%= link_to "delete", favorite_path(f), method: :delete %>
                 <hr>
         <% end %>
     </ul>
