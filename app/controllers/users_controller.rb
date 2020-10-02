@@ -20,9 +20,12 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = @current_user
         @user = User.find_by(params[:id])
-        # byebug
+        if params[:id].to_i == current_user.id
+            @user = @current_user
+        else
+            redirect_to root_path
+        end
     end
 
     private

@@ -5,18 +5,23 @@ class CymbalsController < ApplicationController
     end
 
     def show
-        @cymbal = Cymbal.find_by(id: params[:id])
+        @cymbal = Cymbal.find_by(id: params[:bag_id])
     end
 
     def new
         @cymbal = Cymbal.new
+        @bag = Bag.find_by(id: params[:bag_id])
+        # raise params.inspect
     end
 
     def create
+        # raise params.inspect
         @cymbal = Cymbal.new(cymbal_params)
         @cymbal.save
         if params[:add] #add more button
-            render 'cymbals/new'
+            @bag = Bag.find_by(id: params[:cymbal][:bag_ids])
+            # byebug
+            redirect_to new_bag_cymbal_path(@bag)
         else #done button
             redirect_to user_path(@current_user)
         end
@@ -49,7 +54,7 @@ class CymbalsController < ApplicationController
     private
 
     def cymbal_params
-        params.permit(:brand, :line, :cym_model, :cym_type, :diameter, :weight, :finish, :bag_id)
+        params.require(:cymbal).permit(:brand, :line, :cym_model, :cym_type, :diameter, :weight, :finish, :bag_id)
     end
 
 end

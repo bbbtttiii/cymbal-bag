@@ -22,7 +22,7 @@ class BagsController < ApplicationController
         @bag.save
         if @bag.save
             @cymbal = Cymbal.new
-            redirect_to new_cymbal_path(@cymbal)
+            redirect_to new_bag_cymbal_path(@bag)
         else
             render 'new'
         end

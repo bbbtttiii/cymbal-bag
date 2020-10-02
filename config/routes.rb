@@ -25,10 +25,11 @@ Rails.application.routes.draw do
   get '/cymbals/new', to: 'cymbals#new'
   post '/cymbals/new', to: 'cymbals#create'
 
-  # get '/bags/:id', to: 'bags#show'
-  # post '/bags/new', to: 'bags#create'
+  get '/bags/:id', to: 'bags#show'
+  post '/bags/new', to: 'bags#create'
 
   # Routes for Google authentication
-  # get "/auth/google_oauth2/callback", to: "sessions#google_login"
-  # get 'auth/failure', to: redirect('/')
+  get '/auth/google_oauth2/callback', to: 'sessions#google_login'
+  post '/auth/google_oauth2/callback', to: 'sessions#google_login'
+  get 'auth/failure', to: redirect('/')
 end

@@ -10,7 +10,7 @@
 
 <%= form_for @cymbal do |f|%>
 
-    <% f.hidden_field :user_ids %>
+    <%= f.hidden_field :bag_ids, value: @bag.id %>
 
     <%= f.label "Brand:" %>
     <%= f.text_field :brand %>
