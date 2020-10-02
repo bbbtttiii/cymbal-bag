@@ -5,9 +5,9 @@
 <% else %>
 
     <ul>
-    <% @cymbals.sorted.each do |c| %>
+    <% @cymbals.date_sorted.each do |c| %>
 
-        <li><%= c.diameter %>" <%= c.brand %> <%= c.line %> <%= c.cym_model %> <%= c.cym_type %></li>
+        <li><%= c.diameter %>" <%= c.brand.titleize %> <%= c.line.titleize %> <%= c.cym_model.titleize %> <%= c.cym_type.titleize %></li>
 
     <% end %>
     </ul>

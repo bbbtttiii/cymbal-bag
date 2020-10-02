@@ -6,13 +6,19 @@
 
 <% else %>
 
-        <%= @favorite.cymbal.brand %> <%= @favorite.cymbal.line %> <%= @favorite.cymbal.cym_model %> <%= @favorite.cymbal.cym_type %> 
+        -<%= @favorite.cymbal.brand.titleize %> <%= @favorite.cymbal.line.titleize %> <%= @favorite.cymbal.cym_model.titleize %> <%= @favorite.cymbal.cym_type.titleize %> 
         <br>
-        <%= @favorite.cymbal.diameter %>"
+        -<%= @favorite.cymbal.diameter %>"
         <br>
-        <%= @favorite.cymbal.finish %> Finish
+        <% if @favorite.cymbal.finish %>
+            -<%= @favorite.cymbal.finish.titleize %> Finish
+        <%else%>
+        <%end%>
         <br>
-        <%= @favorite.cymbal.weight %> grams
+        <% if @favorite.cymbal.weight %>
+            -<%= @favorite.cymbal.weight %> grams
+        <%else%>
+        <%end%>
         <br><br>
         <hr>
         <%= link_to "Go Home", user_path(@current_user) %>

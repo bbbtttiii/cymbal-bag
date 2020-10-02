@@ -48,7 +48,11 @@ class CymbalsController < ApplicationController
     end
 
     def sort_by_size
-        @sorted = Cymbal.sorted
+        @size_sorted = Cymbal.size_sorted
+    end
+
+    def sort_by_date
+        @date_sorted = Cymbal.date_sorted
     end
 
     private
