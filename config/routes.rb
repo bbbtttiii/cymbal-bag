@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 #need nested show/index
 
   resources :bags do
-    resources :cymbals
+    resources :cymbals, only: [:new, :create, :edit, :update]
   end
 
   root 'welcome#home'

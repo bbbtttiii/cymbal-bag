@@ -32,7 +32,7 @@ class BagsController < ApplicationController
         @bag = Bag.find_by(id: params[:id])
         @bag.update(bag_params)
         if @bag.update(bag_params)
-            redirect_to user_path
+            redirect_to user_path(@current_user)
         else
             render 'edit'
         end
