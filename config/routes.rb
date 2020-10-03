@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  resources :favorites, except: [:show, :index]
-  resources :users, except: [:show, :index]
-  resources :cymbals, except: [:new, :create, :edit, :update]
+  resources :favorites
+  resources :users
+  resources :cymbals
 
-  resources :users, only: [:show, :index] do
-    resources :favorites, only: [:show, :index]
+  resources :users do
+    resources :favorites
   end
 
   resources :favorites do
-    resources :cymbals, only: [:new, :create, :edit, :update]
+    resources :cymbals
   end
 
   root 'welcome#home'

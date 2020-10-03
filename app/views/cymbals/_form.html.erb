@@ -1,4 +1,4 @@
-<%= form_for @cymbal, url: favorite_cymbals_path(@favorite) do |f|%>
+<%= form_for @cymbal, url: favorite_cymbals_path(@favorite), :method => :POST do |f|%>
 
     <%= f.hidden_field :favorite_ids, value: @favorite.id %>
 

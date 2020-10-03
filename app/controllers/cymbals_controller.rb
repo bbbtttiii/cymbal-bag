@@ -29,13 +29,15 @@ class CymbalsController < ApplicationController
     def edit
         @cymbal = Cymbal.find_by(id: params[:id])
         @favorite = Favorite.find_by(id: params[:favorite_id])
+        # byebug
     end
 
     def update
         @cymbal = Cymbal.find_by(id: params[:id])
         @cymbal.update(cymbal_params)
+
         if @cymbal.update(cymbal_params)
-            redirect_to cymbal_path(@cymbal)
+            redirect_to favorite_cymbal_path(@cymbal)
         else
             render 'edit'
         end
