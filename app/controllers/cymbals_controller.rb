@@ -22,12 +22,12 @@ class CymbalsController < ApplicationController
         if !@cymbal.save
             render 'new'
         else
-            redirect_to favorite_path(@favorite)
+            redirect_to user_path(@current_user)
         end
     end
 
     def edit
-        @cymbal = Cymbal.find_by(id: params[:id])
+        @cymbal = Cymbal.find_by(id: params[:favorite_id])
         @favorite = Favorite.find_by(id: params[:favorite_id])
         # byebug
     end

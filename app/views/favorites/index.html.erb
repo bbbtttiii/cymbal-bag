@@ -1,4 +1,4 @@
-<h1>All Favorites</h1>
+<h1>Cymbals </h1>
 
 <% if @favorites.empty? %>
     None created yet!
@@ -7,7 +7,7 @@
     <ul>
     <% @favorites.each do |b| %>
 
-        <li><%= link_to b.name, favorite_path(b) %>  (<%= b.user.username %>)</li>
+        <li><%= link_to b.name, favorite_path(b) %></li>
 
     <% end %>
     </ul>

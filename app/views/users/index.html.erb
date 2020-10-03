@@ -1,0 +1,5 @@
+All users
+<br><br>
+<% @users.each do |u|%>
+    <%= link_to u.username, user_favorites_path(u) %>
+<%end%>
