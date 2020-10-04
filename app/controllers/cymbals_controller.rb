@@ -1,5 +1,4 @@
 class CymbalsController < ApplicationController
-    before_action :
 
     def index
         @cymbals = Cymbal.date_sorted.size_sorted
