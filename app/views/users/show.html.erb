@@ -13,7 +13,7 @@
                 <% @user.favorites.each do |f| %>
                     <h2><%= link_to f.name, cymbal_path(f.cymbal) %></h2>
                         <%= link_to "edit favorite", edit_favorite_path(f) %> |
-                        <%= link_to "edit cymbal", edit_cymbal_path(f) %> |                
+                        <%= link_to "edit cymbal", edit_cymbal_path(f.cymbal) %> |                
                         <%= link_to "delete", favorite_path(f), method: :delete %>
                         <hr>
                 <% end %>

@@ -1,15 +1,6 @@
 class FavoritesController < ApplicationController
 
-    def index
-        @favorites = Favorite.all
-    end
-
-    def show
-        @favorite = Favorite.find_by(id: params[:id])
-    end
-
     def new
-        # byebug
         @cymbal = Cymbal.find_by(id: params[:cymbal_id])
         @favorite = Favorite.new
     end
@@ -20,11 +11,9 @@ class FavoritesController < ApplicationController
 
     def create
         @favorite = Favorite.new(favorite_params)
-        # byebug
         @favorite.user = @current_user
         @cymbal_id = params[:favorite][:cymbal_id].to_i
         if !@current_user.cymbal_ids.include?(@cymbal_id) 
-            # byebug
             if @favorite.save
                 redirect_to user_path(@current_user)
             end

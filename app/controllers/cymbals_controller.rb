@@ -1,8 +1,7 @@
 class CymbalsController < ApplicationController
 
     def index
-        @cymbals = Cymbal.date_sorted
-        # @cymbals = Cymbal.size_sorted
+        @cymbals = Cymbal.size_sorted.date_sorted
     end
 
     def show
@@ -28,6 +27,7 @@ class CymbalsController < ApplicationController
     end
 
     def edit
+        # raise params.inspect
         @cymbal = Cymbal.find_by(id: params[:id])
         @favorite = Favorite.find_by(id: params[:favorite_id])
     end
@@ -37,7 +37,7 @@ class CymbalsController < ApplicationController
         @cymbal.update(cymbal_params)
 
         if @cymbal.update(cymbal_params)
-            redirect_to favorite_cymbal_path(@cymbal)
+            redirect_to user_path(@current_user)
         else
             render 'edit'
         end

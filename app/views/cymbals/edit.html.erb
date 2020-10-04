@@ -1,4 +1,40 @@
 Editing cymbal specs
 
 <br><br>
-<%= render 'cymbals/form' %>
+<% if @cymbal.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@cymbal.errors.count, "error") %>:</h3>
+    <ul>
+    <% @cymbal.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_for @cymbal do |f|%>
+
+    <%= f.label "Brand:" %>
+    <%= f.text_field :brand %>
+    <br>
+    <%= f.label "Line:" %>
+    <%= f.text_field :line %>
+    <br>
+    <%= f.label "Model:" %>
+    <%= f.text_field :cym_model %>
+    <br>
+    <%= f.label "Type:" %>
+    <%= f.select :cym_type, ['Crash', 'Ride', 'Hi-hat', 'Crash-Ride', 'Splash', 'China', 'Bell', 'Other'] %>
+    <br>
+    <%= f.label "Diameter (in):" %>
+    <%= f.number_field :diameter %>
+    <br>
+    <%= f.label "Weight (g):" %>
+    <%= f.number_field :weight %>
+    <br>
+    <%= f.label "Finish:" %>
+    <%= f.select :finish, ['Natural', 'Brilliant', 'Raw', 'Mixed'] %>
+    <br>
+    <br>
+    <%= f.submit "Done" %>
+
+<% end %>

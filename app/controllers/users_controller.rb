@@ -21,7 +21,6 @@ class UsersController < ApplicationController
     end
 
     def show
-        # byebug
         @user = User.find_by(id: params[:id])
         # raise params.inspect
         redirect_to root_path if @user.nil?
