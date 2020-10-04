@@ -1,0 +1,20 @@
+<% @cymbal.favorites.each do |f| %>
+    <h2><%= f.name %></h2>
+
+    -<%= f.cymbal.brand.titleize %> <%= f.cymbal.line.titleize %> <%= f.cymbal.cym_model.titleize %> <%= f.cymbal.cym_type.titleize %> 
+    <br>
+    -<%= f.cymbal.diameter %>"
+    <br>
+    <% if f.cymbal.finish %>
+        -<%= f.cymbal.finish.titleize %> Finish
+    <%end%>
+    <br>
+    <% if f.cymbal.weight %>
+        -<%= f.cymbal.weight %> grams
+    <%end%>
+    <br><br>
+    <hr>
+
+<%end%>
+    <%= link_to "Add Favorite", new_cymbal_favorite_path(@cymbal) %> |
+    <%= link_to "Go Home", user_path(@current_user) %>

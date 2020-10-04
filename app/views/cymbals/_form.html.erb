@@ -1,6 +1,11 @@
-<%= form_for @cymbal, url: favorite_cymbals_path(@favorite), :method => :POST do |f|%>
+<%= form_for @cymbal do |f|%>
 
-    <%= f.hidden_field :favorite_ids, value: @favorite.id %>
+    <%= f.fields_for :favorites do |fav| %>
+
+        <%= fav.label "Name:" %>
+        <%= fav.text_field :name %>
+
+    <% end %>
 
     <%= f.label "Brand:" %>
     <%= f.text_field :brand %>

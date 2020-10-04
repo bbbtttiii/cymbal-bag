@@ -1,20 +1,34 @@
-<span class="greeting"><h2>Hi, <%= @current_user.username %>.</h2></span>
+<% if @user == @current_user %>
 
-<h1>You have <%= @current_user.favorites.count %> <%if @current_user.favorites.count != 1 %>cymbals:<%else%>cymbal:<%end%></h1>
+<h1>You have <%= @user.favorites.count %> <%if @user.favorites.count != 1 %>cymbals:<%else%>cymbal:<%end%></h1>
 
-<% if @current_user.favorites.empty?  %>
-    None. Create one <%=link_to "here", new_favorite_path %>!
+    <% if @user.favorites.empty?  %>
 
-<% else %>
+        None. Create one <%=link_to "here", new_favorite_path %>!
 
-    <ul>
-        <% @current_user.favorites.each do |f| %>
-            <h2><%= link_to f.name, favorite_path(f) %></h2>
-                <%= link_to "edit name", edit_favorite_path(f) %> |
-                <%= link_to "edit cymbal", edit_favorite_cymbal_path(f) %> |                
-                <%= link_to "delete", favorite_path(f), method: :delete %>
-                <hr>
-        <% end %>
-    </ul>
+    <% else %>
 
-<% end %>
+        <ul>
+            <%if !@user.favorites.empty? %>
+                <% @user.favorites.each do |f| %>
+                    <h2><%= link_to f.name, cymbal_path(f.cymbal) %></h2>
+                        <%= link_to "edit favorite", edit_favorite_path(f) %> |
+                        <%= link_to "edit cymbal", edit_cymbal_path(f) %> |                
+                        <%= link_to "delete", favorite_path(f), method: :delete %>
+                        <hr>
+                <% end %>
+            <%end%>
+        </ul>
+
+    <% end %>
+
+<%else %>
+
+    <% @user.favorites.each do |f| %>
+    <h2><%= link_to f.name, cymbal_path(f.cymbal) %></h2>
+    <%end%>
+
+<%end%>
+
+    
+

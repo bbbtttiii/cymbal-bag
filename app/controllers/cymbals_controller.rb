@@ -1,35 +1,35 @@
 class CymbalsController < ApplicationController
 
     def index
-        @cymbals = Cymbal.all
+        @cymbals = Cymbal.date_sorted
+        # @cymbals = Cymbal.size_sorted
     end
 
     def show
-        @cymbal = Cymbal.find_by(id: params[:favorite_id])
+        @cymbal = Cymbal.find_by(id: params[:id])
     end
 
     def new
         @cymbal = Cymbal.new
-        @favorite = Favorite.find_by(id: params[:favorite_id])
+        @favorite = @cymbal.favorites.build
     end
 
     def create
         @cymbal = Cymbal.new(cymbal_params)
-        @cymbal.save
-        @favorite = Favorite.find_by(id: params[:favorite_id])
-        @favorite.cymbal_id = @cymbal.id
-        @favorite.save
-        if !@cymbal.save
-            render 'new'
-        else
+        @cymbal.user_ids << @current_user.id
+        @cymbal.favorites.last.user_id = @current_user.id
+        if @cymbal.save
+            @cymbal.favorites.last.cymbal_id =  @cymbal.id
+            @cymbal.favorites.last.save
             redirect_to user_path(@current_user)
+        else
+            render 'new'
         end
     end
 
     def edit
-        @cymbal = Cymbal.find_by(id: params[:favorite_id])
+        @cymbal = Cymbal.find_by(id: params[:id])
         @favorite = Favorite.find_by(id: params[:favorite_id])
-        # byebug
     end
 
     def update
@@ -49,18 +49,10 @@ class CymbalsController < ApplicationController
         redirect_to cymbals_path
     end
 
-    def sort_by_size
-        @size_sorted = Cymbal.size_sorted
-    end
-
-    def sort_by_date
-        @date_sorted = Cymbal.date_sorted
-    end
-
     private
 
     def cymbal_params
-        params.require(:cymbal).permit(:brand, :line, :cym_model, :cym_type, :diameter, :weight, :finish, :favorite_id)
+        params.require(:cymbal).permit(:brand, :line, :cym_model, :cym_type, :diameter, :weight, :finish, favorites_attributes: [:name])
     end
 
 end

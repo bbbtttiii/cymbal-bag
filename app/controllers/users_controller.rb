@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :current_user, only: [:create]
+    skip_before_action :current_user, only: [:create, :show]
     skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
 
     def index
@@ -21,12 +21,10 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by(params[:id])
-        if params[:id].to_i == current_user.id
-            @user = @current_user
-        else
-            redirect_to root_path
-        end
+        # byebug
+        @user = User.find_by(id: params[:id])
+        # raise params.inspect
+        redirect_to root_path if @user.nil?
     end
 
     private

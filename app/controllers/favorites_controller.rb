@@ -9,6 +9,8 @@ class FavoritesController < ApplicationController
     end
 
     def new
+        # byebug
+        @cymbal = Cymbal.find_by(id: params[:cymbal_id])
         @favorite = Favorite.new
     end
 
@@ -18,13 +20,17 @@ class FavoritesController < ApplicationController
 
     def create
         @favorite = Favorite.new(favorite_params)
+        # byebug
         @favorite.user = @current_user
-        @favorite.save
-        if @favorite.save
-            @cymbal = Cymbal.new
-            redirect_to new_favorite_cymbal_path(@favorite)
+        @cymbal_id = params[:favorite][:cymbal_id].to_i
+        if !@current_user.cymbal_ids.include?(@cymbal_id) 
+            # byebug
+            if @favorite.save
+                redirect_to user_path(@current_user)
+            end
         else
-            render 'new'
+            #error msg: you already have that cymbal
+            redirect_to new_cymbal_favorite_path(@cymbal_id)
         end
     end
 
@@ -48,7 +54,7 @@ class FavoritesController < ApplicationController
     private
 
     def favorite_params
-        params.require(:favorite).permit(:name, :favorite_id, :user_id, :cymbal_id, :id)
+        params.require(:favorite).permit(:name, :cymbal_id)
     end
 
 end

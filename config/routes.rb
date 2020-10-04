@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
-  resources :favorites, except: [:show, :index]
-  resources :users, except: [:show, :index]
-  resources :cymbals, except: [:new, :create, :edit, :update]
+  resources :favorites
+  resources :cymbals
+  resources :users
 
-  resources :users, only: [:show, :index] do
-    resources :favorites, only: [:show, :index]
-  end
+  # resources :favorites, except: [:show, :index]
+  # resources :users
+  # resources :cymbals, except: [:create, :edit, :update]
 
-  resources :favorites do
-    resources :cymbals, only: [:new, :create, :edit, :update]
+  # resources :users, only: [:show, :index] do
+  #   resources :favorites, only: [:show, :index]
+  # end
+
+  resources :cymbals do
+    resources :favorites
   end
 
   root 'welcome#home'
@@ -19,8 +23,6 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: 'signup'
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
-  # get '/users/:id/favorites', to: 'cymbals#index'
-  # get '/users/:id/favorites/:id', to: 'favorites#show'
 
   # Routes for Google authentication
   get '/auth/google_oauth2/callback', to: 'sessions#google_login'
