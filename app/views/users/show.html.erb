@@ -6,7 +6,7 @@
         <% else %>
             <ul>
                 <% @user.favorites.each do |f| %>
-                    <h2><%= link_to f.name, cymbal_path(f.cymbal) %></h2>
+                    <h2><%= link_to f.name, user_cymbal_path(f.cymbal) %></h2>
                     <%= f.cymbal.diameter %>" 
                     <%= f.cymbal.brand.titleize %> 
                     <%= f.cymbal.line.titleize %> 
