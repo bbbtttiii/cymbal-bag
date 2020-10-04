@@ -3,10 +3,8 @@
 <% if @cymbals.empty? %>
     No cymbals created yet!
 <% else %>
-
     <ul>
     <% @cymbals.each do |c| %>
-
         <li>
         <%= c.diameter %>" 
         <%= c.brand.titleize %> 
@@ -15,8 +13,6 @@
         <%= c.cym_type.titleize %> - 
         <small>(Added on <%= c.created_at.strftime("%m/%d/%Y") %>)</small>
         </li>
-
     <% end %>
     </ul>
-
 <% end %>
