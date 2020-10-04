@@ -1,21 +1,28 @@
 <% if @user == @current_user %>
-<h2>Hi, <%=@user.username%>!</h2>
-<h1>You have <%= @user.favorites.count %> <%if @user.favorites.count != 1 %>cymbals:<%else%>cymbal:<%end%></h1>
-    <% if @user.favorites.empty?  %>
-        None. Add one <%=link_to "here", new_cymbal_path %>!
-    <% else %>
-        <ul>
-            <%if !@user.favorites.empty? %>
-                <% @user.favorites.each do |f| %>
-                    <h2><%= link_to f.name, cymbal_path(f.cymbal) %></h2>
-                        <%= link_to "edit favorite", edit_favorite_path(f) %> |
-                        <%= link_to "edit cymbal", edit_cymbal_path(f.cymbal) %> |                
-                        <%= link_to "delete", favorite_path(f), method: :delete %>
+    <h2>Hi, <%=@user.username%>!</h2>
+    <h1>You have <%= @user.favorites.count %> <%if @user.favorites.count != 1 %>cymbals:<%else%>cymbal:<%end%></h1>
+        <% if @user.favorites.empty?  %>
+            None. Add one <%=link_to "here", new_cymbal_path %>!
+        <% else %>
+            <ul>
+                <%if !@user.favorites.empty? %>
+                    <% @user.favorites.each do |f| %>
+                        <h2><%= link_to f.name, cymbal_path(f.cymbal) %></h2>
+                        <%= f.cymbal.diameter %>" 
+                        <%= f.cymbal.brand.titleize %> 
+                        <%= f.cymbal.line.titleize %> 
+                        <%= f.cymbal.cym_model.titleize %> 
+                        <%= f.cymbal.cym_type.titleize %> - 
+                        <small>(Added on <%= f.cymbal.created_at.strftime("%m/%d/%Y") %>)</small>
+                        <br><br>
+                        <%= link_to "Edit Name", edit_favorite_path(f) %> |
+                        <%= link_to "Edit Details", edit_cymbal_path(f.cymbal) %> |                
+                        <%= link_to "Delete", favorite_path(f), method: :delete %>
                         <hr>
-                <% end %>
-            <%end%>
-        </ul>
-    <% end %>
+                    <% end %>
+                <%end%>
+            </ul>
+        <% end %>
 <%else %>
     <h2> <%=@user.username%> has <%= @user.favorites.count %> <%if @user.favorites.count != 1 %>cymbals<%else%>cymbal<%end%> </h2>
     <% @user.favorites.each do |f| %>
