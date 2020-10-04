@@ -4,7 +4,7 @@
         <% if @user.favorites.empty?  %>
             None. Add one <%=link_to "here", new_cymbal_path %>!
         <% else %>
-            <ul>
+            <%if !@user.favorites.empty? %>
                 <% @user.favorites.each do |f| %>
                     <h2><%= link_to f.name, cymbal_path(f.cymbal) %></h2>
                     <%= f.cymbal.diameter %>" 
@@ -19,19 +19,21 @@
                     <%= link_to "Delete", favorite_path(f), method: :delete %>
                     <hr>
                 <% end %>
-            </ul>
+            <% end %>
         <% end %>
 <% else %>
     <h2> <%=@user.username%> has <%= @user.favorites.count %> <%if @user.favorites.count != 1 %>cymbals<%else%>cymbal<%end%> </h2>
-    <% @user.favorites.each do |f| %>
-        <h2><%= link_to f.name, cymbal_path(f.cymbal) %></h2>
-        <%= f.cymbal.diameter %>" 
-        <%= f.cymbal.brand.titleize %> 
-        <%= f.cymbal.line.titleize %> 
-        <%= f.cymbal.cym_model.titleize %> 
-        <%= f.cymbal.cym_type.titleize %> - 
-        <small>(Added on <%= f.cymbal.created_at.strftime("%m/%d/%Y") %>)</small>
-        <br><br>
-        <hr>
+    <%if !@user.favorites.empty? %>
+        <% @user.favorites.each do |f| %>
+            <h2><%= link_to f.name, cymbal_path(f.cymbal) %></h2>
+            <%= f.cymbal.diameter %>" 
+            <%= f.cymbal.brand.titleize %> 
+            <%= f.cymbal.line.titleize %> 
+            <%= f.cymbal.cym_model.titleize %> 
+            <%= f.cymbal.cym_type.titleize %> - 
+            <small>(Added on <%= f.cymbal.created_at.strftime("%m/%d/%Y") %>)</small>
+            <br><br>
+            <hr>
+        <%end%>
     <% end %>
 <% end %>
