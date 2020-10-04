@@ -10,12 +10,12 @@ An app for drummers to share their cymbal collections.
 
 ## Features
 
-Users can create their cymbal collections and add cymbal specs.
+You can create various cymbal collections by adding cymbal specs. You can also view other users' collections and add their cymbals to your favorites.
 
 ## Built With
 
 - [Ruby on Rails](http://rubyonrails.org)
-- [OmniAuth]
+- [OmniAuth](https://github.com/omniauth/omniauth)
 
 ## Contributing
 
