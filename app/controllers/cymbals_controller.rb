@@ -34,7 +34,6 @@ class CymbalsController < ApplicationController
     def update
         @cymbal = Cymbal.find_by(id: params[:id])
         @cymbal.update(cymbal_params)
-
         if @cymbal.update(cymbal_params)
             redirect_to user_path(@current_user)
         else
