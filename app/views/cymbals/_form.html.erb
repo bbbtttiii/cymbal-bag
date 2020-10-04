@@ -1,20 +1,17 @@
 <%= form_for @cymbal do |f|%>
-
     <%= f.fields_for :favorites do |fav| %>
-
         <%= fav.label "Name:" %>
-        <%= fav.text_field :name %>
-
+        <%= fav.text_field :name %><small> ('main crash', 'side ride', etc.)</small>
     <% end %>
-
+    <br>
     <%= f.label "Brand:" %>
-    <%= f.text_field :brand %>
+    <%= f.text_field :brand %> <small> ('Zildjian')</small>
     <br>
     <%= f.label "Line:" %>
-    <%= f.text_field :line %>
+    <%= f.text_field :line %> <small> ('K Custom')</small>
     <br>
     <%= f.label "Model:" %>
-    <%= f.text_field :cym_model %>
+    <%= f.text_field :cym_model %> <small> ('Dry')</small>
     <br>
     <%= f.label "Type:" %>
     <%= f.select :cym_type, ['Crash', 'Ride', 'Hi-hat', 'Crash-Ride', 'Splash', 'China', 'Bell', 'Other'] %>
@@ -30,5 +27,4 @@
     <br>
     <br>
     <%= f.submit "Done" %>
-
 <% end %>

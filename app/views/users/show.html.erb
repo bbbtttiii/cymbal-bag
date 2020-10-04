@@ -1,10 +1,12 @@
 <% if @user == @current_user %>
 
+<h2>Hi, <%=@user.username%>!</h2>
+
 <h1>You have <%= @user.favorites.count %> <%if @user.favorites.count != 1 %>cymbals:<%else%>cymbal:<%end%></h1>
 
     <% if @user.favorites.empty?  %>
 
-        None. Create one <%=link_to "here", new_favorite_path %>!
+        None. Add one <%=link_to "here", new_cymbal_path %>!
 
     <% else %>
 
@@ -23,6 +25,8 @@
     <% end %>
 
 <%else %>
+
+    <h2> <%= @user.username %>'s Cymbals </h2>
 
     <% @user.favorites.each do |f| %>
     <h2><%= link_to f.name, cymbal_path(f.cymbal) %></h2>

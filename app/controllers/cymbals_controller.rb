@@ -27,7 +27,6 @@ class CymbalsController < ApplicationController
     end
 
     def edit
-        # raise params.inspect
         @cymbal = Cymbal.find_by(id: params[:id])
         @favorite = Favorite.find_by(id: params[:favorite_id])
     end
