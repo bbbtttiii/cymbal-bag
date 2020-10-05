@@ -2,6 +2,7 @@ class Cymbal < ApplicationRecord
     has_many :favorites
     has_many :users, through: :favorites
     accepts_nested_attributes_for :favorites
+    #macro that defines favorites_attributes=
     
     validates :brand, presence: true
     validates :line, presence: true

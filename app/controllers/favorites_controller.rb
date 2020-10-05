@@ -1,7 +1,6 @@
 class FavoritesController < ApplicationController
 
     def new
-        # raise params.inspect
         @cymbal = Cymbal.find_by(id: params[:cymbal_id])
         @favorite = Favorite.new
         @favorite.cymbal = @cymbal
@@ -12,17 +11,17 @@ class FavoritesController < ApplicationController
     end
 
     def create
-        # raise params.inspect
         @favorite = Favorite.new(favorite_params)
         @favorite.user = @current_user
         @cymbal_id = params[:favorite][:cymbal_id].to_i
+        byebug
         if !@current_user.cymbal_ids.include?(@cymbal_id)
             if @favorite.save
                 redirect_to user_path(@current_user)
             end
         else
-            #error msg: you already have that cymbal
-            redirect_to new_cymbal_favorite_path(@cymbal_id)
+            @already_have = "You already have this saved!"
+            render 'new'
         end
     end
 

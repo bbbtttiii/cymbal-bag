@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
+            @wrong_login = "Incorrect Email or Password!"
             render 'new'
         end
     end
