@@ -14,7 +14,6 @@ class FavoritesController < ApplicationController
         @favorite = Favorite.new(favorite_params)
         @favorite.user = @current_user
         @cymbal_id = params[:favorite][:cymbal_id].to_i
-        byebug
         if !@current_user.cymbal_ids.include?(@cymbal_id)
             if @favorite.save
                 redirect_to user_path(@current_user)
@@ -36,7 +35,6 @@ class FavoritesController < ApplicationController
     end
 
     def destroy
-        #make sure belongs to user
         @favorite = Favorite.find_by(id: params[:id])
         @favorite.destroy
         redirect_to user_path(@current_user)
