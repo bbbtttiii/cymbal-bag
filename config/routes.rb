@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: 'signup'
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
+  get '/rides', to: 'cymbals#rides'
+
   # Routes for Google authentication
   get '/auth/google_oauth2/callback', to: 'sessions#google_login'
   post '/auth/google_oauth2/callback', to: 'sessions#google_login'

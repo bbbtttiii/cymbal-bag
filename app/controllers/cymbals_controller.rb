@@ -4,6 +4,10 @@ class CymbalsController < ApplicationController
         @cymbals = Cymbal.date_sorted.size_sorted
     end
 
+    def rides
+        @cymbals = Cymbal.where(cym_type: "Ride")
+    end
+
     def show
         @cymbal = Cymbal.find_by(id: params[:id])
     end
