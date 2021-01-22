@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/doabit/semantic-ui-sass.git
+  revision: af590657254cc0051f5ef44b99eb60e63b2c21d8
+  specs:
+    semantic-ui-sass (2.4.2.0)
+      sassc
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -122,8 +129,6 @@ GEM
     omniauth (1.9.1)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
-    omniauth-facebook (7.0.0)
-      omniauth-oauth2 (~> 1.2)
     omniauth-google-oauth2 (0.8.0)
       jwt (>= 2.0)
       omniauth (>= 1.1.1)
@@ -236,12 +241,12 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.2)
   omniauth
-  omniauth-facebook
   omniauth-google-oauth2
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.3)
   sass-rails (>= 6)
   selenium-webdriver
+  semantic-ui-sass!
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)
