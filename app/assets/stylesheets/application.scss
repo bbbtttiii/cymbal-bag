@@ -1,0 +1,74 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "semantic-ui";
+
+body {
+  background-color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav {
+  border-bottom: 1px black solid;
+  display: flex;
+  padding: 10px;
+}
+
+// nav h1 {
+
+// }
+
+nav ul li {
+  font-size: 16px;
+  list-style-type: none;
+  display: inline;
+  padding: 0px 5px 0px 5px;
+}
+
+.greeting {
+  display: block;
+  border-bottom: 1px black solid;
+}
+
+//  a {
+//      color: blue;
+//      text-decoration: none;
+//  }
+
+a:hover {
+  text-decoration: underline;
+}
+
+.error-explanation {
+  color: red;
+}
+
+main {
+  background-color: #ddd;
+  padding: 25px;
+  border: 1px #ddd solid;
+  margin: 0 auto;
+  width: 66%;
+  min-height: 100vh;
+}
+
+// input[type=button], input[type=submit], input[type=reset] {
+//     background-color:lightblue;
+//     border: 1px black solid;
+//     color: black;
+//     padding: 5px 10px;
+//     text-decoration: none;
+//   }
